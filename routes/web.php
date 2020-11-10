@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
-Route::livewire('/', 'post.index')->name('post.index');
-Route::livewire('/create', 'post.create')->name('post.create');
-Route::livewire('/edit/{id}', 'post.edit')->name('post.edit');
+Route::get('/', App\Http\Livewire\Post\Index::class)->name('post.index');
+Route::get('/create', App\Http\Livewire\Post\Create::class)->name('post.create');
+Route::get('/edit/{id}/?', App\Http\Livewire\Post\Edit::class)->name('post.edit');
